@@ -25,7 +25,7 @@ if (mouse_check_button_pressed(1) && timing<=0){
 	hitbox.owner=self;
 	bullet._shadow=_shadow;
 	audio_play_sound(Player_shoot,1,false);
-	bullet.direction=point_direction(x,y,mouse_x,mouse_y);
+	bullet.direction=point_direction(x,y,mouse_x,mouse_y)+irandom_range(-3,3);
 	bullet.image_angle=angle;
 	timing=CD;
 }

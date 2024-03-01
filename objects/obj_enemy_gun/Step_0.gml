@@ -24,7 +24,7 @@ if (timing<=0){
 	hitbox.owner=self;
 	bullet._shadow=_shadow;
 	audio_play_sound(Enemy_shoot,1,false);
-	bullet.direction=point_direction(x,y,obj_player.x,obj_player.y);
+	bullet.direction=point_direction(x,y,obj_player.x,obj_player.y)+irandom_range(-3,3);
 	bullet.image_angle=angle;
 	CD=irandom_range(70,120);
 	timing=CD;
