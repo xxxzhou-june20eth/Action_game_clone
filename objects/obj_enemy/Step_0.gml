@@ -1,21 +1,16 @@
 var dis=point_distance(x,y,obj_player.x,obj_player.y);
 var vector_to_player = point_direction(x,y,obj_player.x,obj_player.y);
+var px=x;
+var py=y;
+
 timing--;
 	
 switch (state)
 {
-	case EnemyState.Idle:
+	case EnemyState.Searching:
 		
 		//random movement
-		if (timing<=30){
-			direction=irandom(360);
-			if (timing<=0){
-				timing=30;
-			}
-		}
-		else if (timing<=60){
-			direction=point_direction(x,y,obj_player.x,obj_player.y);
-		}
+		direction=vector_to_player;
 		x+=lengthdir_x(spd,direction);
 		y+=lengthdir_y(spd,direction);
 		
@@ -28,24 +23,15 @@ switch (state)
 		}
 		
 		//change_state
-		if (dis<close_distance){
-			state=EnemyState.Chasing;
-			pass=false;
-		}
-		else if (dis<=far_distance){
-			state=EnemyState.Shooting;
+		if (dis<med_distance){
+			state=EnemyState.First_move;
+			move_towards_point(obj_player.x,obj_player.y,spd);
 		}
 		
 	break
 	
-	case EnemyState.Chasing:
-		
-		//movement to player;
-		if (!pass){
-			move_towards_point(obj_player.x,obj_player.y,spd);
-			pass=true;
-		}
-		
+	case EnemyState.First_move:
+				
 		//change image_xscale
 		if (vector_to_player<=90 || vector_to_player>=270){
 			image_xscale=1;
@@ -55,41 +41,58 @@ switch (state)
 		}
 		
 		//change state
-		if (dis>far_distance){
-			state=EnemyState.Idle;
-		}
-		else if (dis>close_distance){
-			state=EnemyState.Shooting;
+		if (dis>close_distance){
+			state=EnemyState.Second_move;
+			var vari=irandom_range(-45,45);
+			direction=vector_to_player+vari;
+			if (direction<0){
+				direction=360+direction;
+			}
 		}
 		
 	break;
 
-	case EnemyState.Shooting:
+	case EnemyState.Second_move:
 	
-		if (timing<=0){
-			direction=vector_to_player-30;
-			timing=30;
-		}
-		x+=lengthdir_x(spd,direction);
-		y+=lengthdir_y(spd,direction);
-	
-		if (dis>=far_distance){
-			state=EnemyState.Idle;
+		if (dis>med_distance){
+			state=EnemyState.Third_move;
+			var low=vector_to_player-45;
+			var high=vector_to_player+45;
+			if (low<0){
+				high=360+low;
+				low=vector_to_player+45;
+			}
+			direction=irandom(359);
+			while (direction>low && direction<high){
+				direction=irandom(359);
+			}
 		}
 	
 	break;
+	
+	case EnemyState.Third_move:
+		
+		if (dis>far_distance){
+			state=EnemyState.Searching;
+		}
+		
+	break;
+	
 }
 
-if (x-sprite_width/2<=0){
-	x=sprite_width/2+1;
+if (place_meeting(x+2,y,obj_rock)){
+	x=px;
+	direction-=180;
 }
-else if (x+sprite_width>room_width){
-	x=room_width-sprite_width-1;
+if (place_meeting(x,y+2,obj_rock)){
+	y=py;
+	direction-=180;
 }
 
-if (y-sprite_height/2<=0){
-	y=sprite_height/2+1;
+if (x<obj_camera.w/2 || x>room_width-obj_camera.w/2){
+	x=px;
 }
-else if (y+sprite_height>room_height){
-	x=room_height-sprite_height-1;
+
+if (y<obj_camera.h/2 || y>room_height-obj_camera.h/2){
+	y=py;
 }

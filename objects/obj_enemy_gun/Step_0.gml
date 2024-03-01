@@ -14,7 +14,7 @@ else{
 timing--;
 
 if (timing<=0){
-	var bullet=instance_create_layer(x,y,"Instances",obj_player_bullet);
+	var bullet=instance_create_layer(x,y,"Enemy",obj_enemy_bullet);
 	bullet.direction=point_direction(x,y,obj_player.x,obj_player.y);
 	timing=CD;
 }

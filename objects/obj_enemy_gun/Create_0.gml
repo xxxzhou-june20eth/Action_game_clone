@@ -1,3 +1,3 @@
 owner="";
-CD=45;
+CD=90;
 timing=CD;
