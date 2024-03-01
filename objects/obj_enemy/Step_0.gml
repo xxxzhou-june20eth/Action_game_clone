@@ -100,5 +100,6 @@ if (y<obj_camera.h/2 || y>room_height-obj_camera.h/2){
 //death
 if (hp<=0){
 	instance_destroy(gun);
+	instance_destroy(_shadow);
 	instance_destroy(self);
 }

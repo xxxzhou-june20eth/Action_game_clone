@@ -3,9 +3,12 @@ if (!enemy_created){
 		var cx=irandom_range(500,1500);
 		var cy=irandom_range(500,1500)
 		var enemy=instance_create_layer(cx,cy,"Enemy",obj_enemy);
-		var gun=instance_create_layer(cx,cy,"Enemy",obj_enemy_gun);
+		var gun=instance_create_layer(cx,cy,"Guns",obj_enemy_gun);
+		var _shadow=instance_create_layer(x,y,"Shadow",obj_shadow);
 		enemy.gun=gun;
+		enemy._shadow=_shadow;
 		gun.owner=enemy;
+		_shadow.owner=enemy;
 	}
 	enemy_created=true;
 }
