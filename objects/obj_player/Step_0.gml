@@ -22,6 +22,7 @@ else{
 	y+=vmove*spd;
 }
 
+//collision
 if (place_meeting(x+2,y,obj_rock)){
 	x=px;
 }
@@ -32,7 +33,6 @@ if (place_meeting(x,y+2,obj_rock)){
 if (x<obj_camera.w/2 || x>room_width-obj_camera.w/2){
 	x=px;
 }
-
 if (y<obj_camera.h/2 || y>room_height-obj_camera.h/2){
 	y=py;
 }

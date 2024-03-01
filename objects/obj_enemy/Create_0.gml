@@ -8,4 +8,4 @@ gun="";
 
 pass=false;
 
-hp=80;
+hp=20;
