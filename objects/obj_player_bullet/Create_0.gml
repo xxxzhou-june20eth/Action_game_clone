@@ -1,2 +1,2 @@
-speed=5;
+speed=8;
 damage=10;
