@@ -1,2 +1,2 @@
 enemy_created=false;
-enemy_number=3;
+enemy_number=8;
