@@ -1,3 +1,3 @@
 speed=5;
-damage=50;
+damage=10;
 

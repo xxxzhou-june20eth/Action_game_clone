@@ -80,6 +80,7 @@ switch (state)
 	
 }
 
+//collision
 if (place_meeting(x+2,y,obj_rock)){
 	x=px;
 	direction-=180;
@@ -92,7 +93,12 @@ if (place_meeting(x,y+2,obj_rock)){
 if (x<obj_camera.w/2 || x>room_width-obj_camera.w/2){
 	x=px;
 }
-
 if (y<obj_camera.h/2 || y>room_height-obj_camera.h/2){
 	y=py;
+}
+
+//death
+if (hp<=0){
+	instance_destroy(gun);
+	instance_destroy(self);
 }

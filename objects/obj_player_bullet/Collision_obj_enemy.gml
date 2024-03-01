@@ -1,2 +1,2 @@
-obj_enemy.hp-=damage;
+other.hp-=damage;
 instance_destroy(self);

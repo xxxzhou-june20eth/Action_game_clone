@@ -3,8 +3,24 @@ var vmove=keyboard_check(ord("S"))-keyboard_check(ord("W"));
 var px=x;
 var py=y;
 
-x+=hmove*spd;
-y+=vmove*spd;
+//change sprite
+if (hmove!=0){
+	sprite_index=spr_player_run;
+	image_xscale=hmove;
+}
+else{
+	sprite_index=spr_player_idle;
+}
+
+//movement
+if (hmove!=0 && vmove!=0){
+	x+=hmove*spd*0.7;
+	y+=vmove*spd*0.7;
+}
+else{
+	x+=hmove*spd;
+	y+=vmove*spd;
+}
 
 if (place_meeting(x+2,y,obj_rock)){
 	x=px;

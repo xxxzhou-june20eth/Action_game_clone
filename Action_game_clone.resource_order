@@ -26,10 +26,12 @@
     {"name":"obj_player_bullet","order":2,"path":"objects/obj_player_bullet/obj_player_bullet.yy",},
     {"name":"obj_enemy_bullet","order":3,"path":"objects/obj_enemy_bullet/obj_enemy_bullet.yy",},
     {"name":"spr_player_bullet","order":2,"path":"sprites/spr_player_bullet/spr_player_bullet.yy",},
-    {"name":"spr_player","order":1,"path":"sprites/spr_player/spr_player.yy",},
+    {"name":"spr_player_run","order":1,"path":"sprites/spr_player_run/spr_player_run.yy",},
     {"name":"spr_rock","order":6,"path":"sprites/spr_rock/spr_rock.yy",},
     {"name":"spr_gun","order":4,"path":"sprites/spr_gun/spr_gun.yy",},
     {"name":"obj_rock","order":7,"path":"objects/obj_rock/obj_rock.yy",},
+    {"name":"Enemy_shoot","order":1,"path":"sounds/Enemy_shoot/Enemy_shoot.yy",},
     {"name":"spr_enemy_bullet","order":3,"path":"sprites/spr_enemy_bullet/spr_enemy_bullet.yy",},
+    {"name":"spr_player_idle","order":7,"path":"sprites/spr_player_idle/spr_player_idle.yy",},
   ],
 }
